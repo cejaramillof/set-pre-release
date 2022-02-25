@@ -1,0 +1,34 @@
+name: 'Set as Pre Release'
+
+author: Carlos Jaramillo
+
+description: 'Set as pre release'
+
+branding:
+  icon: lock
+  color: gray-dark
+
+inputs:
+  repository:
+    description: Repository name
+    default: ${{ github.repository }}
+    required: false
+
+  keywords:
+    description: release keywords to mark as pre-release
+    required: true
+
+  token:
+    description: Repository access token
+    required: true
+
+outputs:
+  code:
+    description: Status code
+
+  data:
+    description: Response data
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

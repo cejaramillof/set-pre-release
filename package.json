@@ -1,0 +1,32 @@
+{
+  "name": "set-pre-release",
+  "version": "0.0.1",
+  "repository": "https://github.com/cejaramillof/set-pre-release",
+  "license": "MIT License",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "ncc build index.js -o dist"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@octokit/core": "^3.1.2",
+    "eslint": "^7.6.0"
+  },
+  "devDependencies": {
+    "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-jsdoc": "^30.2.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "eslint . --fix"
+    ]
+  }
+}
